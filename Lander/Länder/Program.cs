@@ -12,7 +12,7 @@ namespace Länder
 
             public void print()
             {
-                Console.WriteLine($"Land: {land}"); 
+                Console.WriteLine($"Land: {land}");
                 Console.WriteLine($"    Huvudstad: {huvudstad}");
                 Console.WriteLine($"    Styrestyp: {styrestyp}");
                 Console.WriteLine($"    Invånare: {invånarantal} människor");
@@ -46,43 +46,43 @@ namespace Länder
             //san_marino.print();
             Console.WriteLine("---------------------------------------------");
 
-            Land[] länder = new Land[7] 
-            { 
+            Land[] länder = new Land[7]
+            {
                 sverige,
-                tyskland, 
-                san_marino, 
-                new Land() 
-                { 
-                    land = "Danmark", 
-                    styrestyp = "monarki", 
-                    huvudstad = "Köpenhamn", 
+                tyskland,
+                san_marino,
+                new Land()
+                {
+                    land = "Danmark",
+                    styrestyp = "monarki",
+                    huvudstad = "Köpenhamn",
                     invånarantal = 5928364},
-                new Land() 
-                { 
-                    land = "Italien", 
+                new Land()
+                {
+                    land = "Italien",
                     styrestyp = "republik",
-                    huvudstad = "Rom", 
-                    invånarantal = 58853482}, 
-                new Land() 
-                { 
-                    land = "Tjeckien", 
+                    huvudstad = "Rom",
+                    invånarantal = 58853482},
+                new Land()
+                {
+                    land = "Tjeckien",
                     styrestyp = "republik",
-                    huvudstad = "Prag", 
-                    invånarantal = 10551219}, 
-                new Land() 
-                { 
-                    land = "Rumänien", 
+                    huvudstad = "Prag",
+                    invånarantal = 10551219},
+                new Land()
+                {
+                    land = "Rumänien",
                     styrestyp = "republik",
-                    huvudstad = "Bukarest", 
+                    huvudstad = "Bukarest",
                     invånarantal = 19760314} };
-            
+
             //for(int i = 0; i < länder.Length; i++)
             //{
             //    if (länder[i] !=  null)
             //        länder[i].print();
             //}
             Console.WriteLine("----------------------------------------------");
-            foreach(Land  L  in länder)
+            foreach (Land L in länder)
             {
                 L.print();
             }
@@ -92,7 +92,31 @@ namespace Länder
                 if (länder[i].styrestyp == "republik")
                     Console.WriteLine($"{i}: {länder[i].land}");
             }
-                
-        }
+
+            int min = -1;
+            int max = -1;
+            for (int i = 0; i < länder.Length; i++)
+            {
+                if (länder[i].styrestyp == "republik")
+                {
+                    if (min == -1)
+                    {
+                        min = i;
+                        max = i;
+                    }
+                    else
+                    {
+                        if (länder[i].invånarantal < länder[min].invånarantal)
+                            min= i;
+                        if (länder[i].invånarantal > länder[min].invånarantal)
+                            max = i;
+                    }
+                }
+            }
+            Console.WriteLine("==== Republik med minsta invånarantal ====");
+            länder[min].print();
+            Console.WriteLine("==== Republik med största invånarantal ====");
+            länder[max].print();
+        } 
     }
 }
