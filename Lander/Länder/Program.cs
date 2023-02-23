@@ -11,9 +11,12 @@ namespace Länder
             public void print()
             {
                 Console.WriteLine($"Land: {land}");
+                Console.WriteLine($"    Styrestyp: {styrestyp}");
+                Console.WriteLine($"    Huvudstad: {huvudstad}");
+                Console.WriteLine($"    Invånare: {invånarantal} människor");
             }
         }
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             Land sverige = new Land()
             {
@@ -41,17 +44,20 @@ namespace Länder
             san_marino.print();
             Console.WriteLine("--------------------------");
 
-            string[] array = new string[7];
-            array[0] = sverige.land;
-            array[1] = tyskland.land;
-            array[2] = san_marino.land;
-            array[3] = "Danmark";
-            array[4] = sverige.land;
-            array[5] = sverige.land;
-            array[6] = sverige.land;
-            foreach(string a in array)
+            Land[] array = new Land[7] { sverige, tyskland, san_marino, 
+                new Land() { land = "Danmark", styrestyp = "monarki", 
+                    huvudstad = "Köpenhamn", invånarantal = "5 928 364"},
+                new Land() { land = "Italien", styrestyp = "republik",
+                    huvudstad = "Rom", invånarantal = "58 853 482"}, 
+                new Land() { land = "Tjeckien", styrestyp = "republik",
+                    huvudstad = "Prag", invånarantal = "10 551 219"}, 
+                new Land() { land = "Rumänien", styrestyp = "republik",
+                    huvudstad = "Bukarest", invånarantal = "19 760 314"} };
+            
+            for(int i = 0; i < array.Length; i++)
             {
-                Console.WriteLine(a);
+                if (array[i] !=  null)
+                    array[i].print();
             }
         }
     }
