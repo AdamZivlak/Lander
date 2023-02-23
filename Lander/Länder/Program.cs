@@ -36,13 +36,23 @@ namespace Länder
                 huvudstad = "San Marino",
                 invånarantal = "33 600"
             };
-            //Console.WriteLine($"Land: {sverige.land}");
-            //Console.WriteLine($"Huvudstad: {sverige.huvudstad}");
-            //Console.WriteLine($"Styrestyp: {sverige.styrestyp}");
-            //Console.WriteLine($"Invånarantal: {sverige.invånarantal} männsikor");
             sverige.print();
             tyskland.print();
             san_marino.print();
+            Console.WriteLine("--------------------------");
+
+            string[] array = new string[7];
+            array[0] = sverige.land;
+            array[1] = tyskland.land;
+            array[2] = san_marino.land;
+            array[3] = "Danmark";
+            array[4] = sverige.land;
+            array[5] = sverige.land;
+            array[6] = sverige.land;
+            foreach(string a in array)
+            {
+                Console.WriteLine(a);
+            }
         }
     }
 }
