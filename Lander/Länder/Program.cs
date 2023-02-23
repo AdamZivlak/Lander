@@ -6,13 +6,15 @@ namespace Länder
     {
         public class Land
         {
-            public string land, styrestyp, huvudstad, invånarantal;
+
+            public string land, styrestyp, huvudstad;
+            public int invånarantal;
 
             public void print()
             {
-                Console.WriteLine($"Land: {land}");
-                Console.WriteLine($"    Styrestyp: {styrestyp}");
+                Console.WriteLine($"Land: {land}"); 
                 Console.WriteLine($"    Huvudstad: {huvudstad}");
+                Console.WriteLine($"    Styrestyp: {styrestyp}");
                 Console.WriteLine($"    Invånare: {invånarantal} människor");
             }
         }
@@ -23,42 +25,74 @@ namespace Länder
                 land = "Sverige",
                 styrestyp = "monarki",
                 huvudstad = "Stockholm",
-                invånarantal = "10 512 820"
+                invånarantal = 10512820
             };
             Land tyskland = new Land()
             {
                 land = "Tyskland",
                 styrestyp = "republik",
                 huvudstad = "Berlin",
-                invånarantal = "83 783 902"
+                invånarantal = 83783902
             };
             Land san_marino = new Land()
             {
                 land = "San Marino",
                 styrestyp = "republik",
                 huvudstad = "San Marino",
-                invånarantal = "33 600"
+                invånarantal = 33600
             };
-            sverige.print();
-            tyskland.print();
-            san_marino.print();
-            Console.WriteLine("--------------------------");
+            //sverige.print();
+            //tyskland.print();
+            //san_marino.print();
+            Console.WriteLine("---------------------------------------------");
 
-            Land[] array = new Land[7] { sverige, tyskland, san_marino, 
-                new Land() { land = "Danmark", styrestyp = "monarki", 
-                    huvudstad = "Köpenhamn", invånarantal = "5 928 364"},
-                new Land() { land = "Italien", styrestyp = "republik",
-                    huvudstad = "Rom", invånarantal = "58 853 482"}, 
-                new Land() { land = "Tjeckien", styrestyp = "republik",
-                    huvudstad = "Prag", invånarantal = "10 551 219"}, 
-                new Land() { land = "Rumänien", styrestyp = "republik",
-                    huvudstad = "Bukarest", invånarantal = "19 760 314"} };
+            Land[] länder = new Land[7] 
+            { 
+                sverige,
+                tyskland, 
+                san_marino, 
+                new Land() 
+                { 
+                    land = "Danmark", 
+                    styrestyp = "monarki", 
+                    huvudstad = "Köpenhamn", 
+                    invånarantal = 5928364},
+                new Land() 
+                { 
+                    land = "Italien", 
+                    styrestyp = "republik",
+                    huvudstad = "Rom", 
+                    invånarantal = 58853482}, 
+                new Land() 
+                { 
+                    land = "Tjeckien", 
+                    styrestyp = "republik",
+                    huvudstad = "Prag", 
+                    invånarantal = 10551219}, 
+                new Land() 
+                { 
+                    land = "Rumänien", 
+                    styrestyp = "republik",
+                    huvudstad = "Bukarest", 
+                    invånarantal = 19760314} };
             
-            for(int i = 0; i < array.Length; i++)
+            //for(int i = 0; i < länder.Length; i++)
+            //{
+            //    if (länder[i] !=  null)
+            //        länder[i].print();
+            //}
+            Console.WriteLine("----------------------------------------------");
+            foreach(Land  L  in länder)
             {
-                if (array[i] !=  null)
-                    array[i].print();
+                L.print();
             }
+            Console.WriteLine("==== Lista alla republiker ====");
+            for (int i = 0; i < länder.Length; i++)
+            {
+                if (länder[i].styrestyp == "republik")
+                    Console.WriteLine($"{i}: {länder[i].land}");
+            }
+                
         }
     }
 }
