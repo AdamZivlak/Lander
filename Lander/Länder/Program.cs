@@ -1,14 +1,20 @@
-﻿namespace Länder
+﻿using System.Runtime.InteropServices;
+
+namespace Länder
 {
     internal class Program
     {
         public class Land
         {
             public string land, styrestyp, huvudstad, invånarantal;
+
+            public void print()
+            {
+                Console.WriteLine($"Land: {land}");
+            }
         }
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
             Land sverige = new Land()
             {
                 land = "Sverige",
@@ -34,6 +40,9 @@
             //Console.WriteLine($"Huvudstad: {sverige.huvudstad}");
             //Console.WriteLine($"Styrestyp: {sverige.styrestyp}");
             //Console.WriteLine($"Invånarantal: {sverige.invånarantal} männsikor");
+            sverige.print();
+            tyskland.print();
+            san_marino.print();
         }
     }
 }
